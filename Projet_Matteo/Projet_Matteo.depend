@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1673388932 source:c:\users\zamra\onedrive\bureau\projet matteo\projet_matteo\affichage.c
+	"affichage.h"
+
+1673388932 c:\users\zamra\onedrive\bureau\projet matteo\projet_matteo\affichage.h
+	"header.h"
+
+1673390201 c:\users\zamra\onedrive\bureau\projet matteo\projet_matteo\header.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+	<conio.h>
+
+1673389519 source:c:\users\zamra\onedrive\bureau\projet matteo\projet_matteo\main.c
+	"header.h"
+
+1673389230 source:c:\users\zamra\onedrive\bureau\projet matteo\projet_matteo\init.c
+	"init.h"
+
+1673389130 c:\users\zamra\onedrive\bureau\projet matteo\projet_matteo\init.h
+	"header.h"
+
