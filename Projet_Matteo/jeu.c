@@ -1,4 +1,5 @@
 #include "jeu.h"
+#include "init.h"
 #include "affichage.h"
 
 void Jouer(t_jeu jeu)
@@ -6,6 +7,9 @@ void Jouer(t_jeu jeu)
 
     do
     {
+        system("cls");
+        affichagePlateau(jeu);
+        rotate(&jeu);
         system("cls");
         affichagePlateau(jeu);
         deplacerTuile(&jeu);
@@ -23,8 +27,42 @@ void Jouer(t_jeu jeu)
         {
             jeu.tour_de_jeu = 0;
         }
+        if(fin_du_jeu(jeu) == 0){
+            system("cls");
+            gotoligcol(5,5);
+            printf("BRAVO ! Le joueur %d a gagne !", jeu.tour_de_jeu);
+            Sleep(3000);
+            break;
+        }
     }
     while (1);   // faire la fonction de fin de jeu
+}
+
+int fin_du_jeu(t_jeu jeu)
+{
+    for(int i = 0;i<jeu.nbr_player;i++)
+    {
+        if(jeu.joueurs[i].index_tresors == 24/jeu.nbr_player)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int rotate(t_jeu* jeu)
+{
+    gotoligcol(9, 45);
+    printf("Voulez vous tourner la carte ?(Y/N)");
+    char Y;
+
+    Y = getch();
+    if(Y=='Y'||Y == 'y'){
+    rotate90Clockwise(jeu->carte_restante.dessin);
+    return 1;
+    }
+
+    return 0;
 }
 
 void deplacerTuile(t_jeu *jeu)
@@ -419,18 +457,27 @@ int deplacerJoueur(t_jeu *plateau)
     int nouvelle_lig = plateau->joueurs[plateau->tour_de_jeu].rang + lig_dep;
     int nouvelle_col = plateau->joueurs[plateau->tour_de_jeu].colonne + col_dep;
     int possible = testDeplacementJoueur(*plateau, nouvelle_lig, nouvelle_col);
+    //int possible = 1; //retire le blindage et traverse les murs
     if (possible < 0)
     {
-        gotoligcol(12, 35);
+        gotoligcol(12, 40);
         printf("Impossible de se deplacer dans cette direction (error #%d)", possible);
         Sleep(500);
         return -1; // impossible de se deplacer dans cette direction, on recommence
     }
     else
     {
-        // sinon c'est possible, donc on modifie les coordonn�es du joueur.
+        // sinon c'est possible, donc on modifie les coordonnees du joueur.
         plateau->joueurs[plateau->tour_de_jeu].rang += lig_dep;
         plateau->joueurs[plateau->tour_de_jeu].colonne += col_dep;
+        int nouv_rang = plateau->joueurs[plateau->tour_de_jeu].rang;
+        int nouv_colonne = plateau->joueurs[plateau->tour_de_jeu].colonne;
+        if(plateau->joueurs[plateau->tour_de_jeu].main_tresors[plateau->joueurs[plateau->tour_de_jeu].index_tresors] == plateau->cartes[nouv_rang][nouv_colonne].tresor){
+            plateau->cartes[nouv_rang][nouv_colonne].tresor = ' ';
+            plateau->cartes[nouv_rang][nouv_colonne].dessin[1][1] = ' ';
+            plateau->joueurs[plateau->tour_de_jeu].index_tresors++;
+        }
+
     }
 
     return -1; // le joueur s'est d�plac� mais n'a pas quitt�, on retourne -1 pour relancer la fonction apres

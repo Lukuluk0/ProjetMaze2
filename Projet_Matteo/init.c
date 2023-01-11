@@ -1,7 +1,5 @@
 #include "init.h"
 
-#define N 3
-
 // Function to rotate the matrix 90 degree clockwise
 void rotate90Clockwise(char a[N][N]) /// source https://www.geeksforgeeks.org/
 {

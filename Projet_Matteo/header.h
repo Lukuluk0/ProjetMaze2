@@ -7,9 +7,10 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <ctype.h>
 #include <time.h>
 
+#define N 3
 
 typedef struct carte {
     int rang; //ligne

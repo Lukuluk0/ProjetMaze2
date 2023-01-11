@@ -1,7 +1,8 @@
 #include "header.h"
-#include "menu.h"
 #include "affichage.h"
+#include "menu.h"
 #include "init.h"
+#include "jeu.h"
 
 int main()
 {
@@ -37,7 +38,6 @@ int main()
             init_jeu(&jeu, number_player);
             Jouer(jeu);
             //Sleep(50000);
-            // jeu&
             break;
         }
         case 2:
