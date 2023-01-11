@@ -17,16 +17,16 @@ void gotoligcol(int lig, int col)
 
 void affichagePlateau(t_jeu plateau)
 {
-    for(int i=0; i<plateau.nbr_player; i++)
-    {
-        printf("j_%d - %d,%d    ", i, plateau.joueurs[i].rang, plateau.joueurs[i].colonne);
-    }
 
     int decalageGauche = 5;
     int decalageHaut = 2;
     int espaceBlockHorizontal = 2;
     int espaceBlockVertical = 1;
 
+    // for(int i=0; i<plateau.nbr_player; i++)
+    // {
+    //     printf("j_%d - %d,%d    ", i, plateau.joueurs[i].rang, plateau.joueurs[i].colonne);
+    // }
     // char mur = 'x';
     // t_carte carte;
     // t_jeu plateauTest;
@@ -58,26 +58,26 @@ void affichagePlateau(t_jeu plateau)
         {
             for (int k = 0; k < 3; k++)
             {
-                gotoligcol(decalageHaut + i * (3 + espaceBlockVertical) + k, decalageGauche + j * (3 + espaceBlockHorizontal));
                 for (int l = 0; l < 3; l++)
                 {
+                    gotoligcol(decalageHaut + i * (3 + espaceBlockVertical) + k, decalageGauche + j * (3 + espaceBlockHorizontal) + l);
                     if(plateau.cartes[i][j].dessin[k][l] == '#')
                     {
                         for(int m=0; m<plateau.nbr_player; m++)
                         {
                             if(plateau.joueurs[m].rang == i && plateau.joueurs[m].colonne == j)
                             {
-                                Color(0, 9 + m);
-                                //printf("%d",m);
+                                Color(9 + m, 9 + m);
+                                break;
                             }
                             else
                             {
                                 Color(15, 15);
                             }
                         }
+                        printf("%c", plateau.cartes[i][j].dessin[k][l]);
+                        Color(15, 0);
                     }
-                    printf("%c", plateau.cartes[i][j].dessin[k][l]);
-                    Color(15, 0);
                 }
             }
         }
