@@ -15,9 +15,21 @@ void Jouer(t_jeu jeu)
         }
 
     }
-    while(1); // faire la fonction de fin de jeu
+    while(fin_du_jeu(jeu) == 1); // faire la fonction de fin de jeu
 
 
+}
+
+int fin_du_jeu(t_jeu jeu)
+{
+    for(int i = 0;i<jeu.nbr_player;i++)
+    {
+        if(jeu.joueurs[i].index_tresors == 24/jeu.nbr_player)
+        {
+            return 0;
+        }
+    }
+    return 1;
 }
 
 int rotate(t_jeu*jeu)
