@@ -1,5 +1,7 @@
 #include "header.h"
 #include "menu.h"
+#include "affichage.h"
+#include "init.h"
 
 int main()
 {
@@ -33,9 +35,9 @@ int main()
             system("cls");
             t_jeu jeu;
             init_jeu(&jeu, 2);
-            printf("\n\ntest : %c%c%c\n", jeu.cartes[1][1].dessin[0][0],jeu.cartes[1][1].dessin[0][1],jeu.cartes[1][1].dessin[0][2]);
-            printf("test : %c%c%c\n", jeu.cartes[1][1].dessin[1][0],jeu.cartes[1][1].dessin[1][1],jeu.cartes[1][1].dessin[1][2]);
-            printf("test : %c%c%c\n", jeu.cartes[1][1].dessin[2][0],jeu.cartes[1][1].dessin[2][1],jeu.cartes[1][1].dessin[2][2]);
+            printf("\n\ntest : %c%c%c\n", jeu.cartes[0][0].dessin[0][0],jeu.cartes[0][0].dessin[0][1],jeu.cartes[0][0].dessin[0][2]);
+            printf("test : %c%c%c\n", jeu.cartes[0][0].dessin[1][0],jeu.cartes[0][0].dessin[1][1],jeu.cartes[0][0].dessin[1][2]);
+            printf("test : %c%c%c\n", jeu.cartes[0][0].dessin[2][0],jeu.cartes[0][0].dessin[2][1],jeu.cartes[0][0].dessin[2][2]);
             Sleep(3000);
             affichagePlateau(jeu);
             Sleep(50000);

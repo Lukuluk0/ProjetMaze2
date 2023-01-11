@@ -22,8 +22,8 @@ void affichagePlateau(t_jeu plateau)
     int decalageHaut = 2;
     int espaceBlockHorizontal = 3;
     int espaceBlockVertical = 1;
-    char mur = 'x';
 
+    // char mur = 'x';
     // t_carte carte;
     // t_jeu plateauTest;
     // plateauTest.nbr_player = 3;

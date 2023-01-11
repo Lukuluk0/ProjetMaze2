@@ -24,20 +24,6 @@ void dessinL(char dessin[3][3], char tresor)
     memcpy(dessin, carte, sizeof(carte));
 }
 
-void init_jeu(t_jeu *jeu, int nbr_player)
-{
-    jeu->nbr_player = nbr_player;
-    jeu->tour_de_jeu = 0;
-
-    init_cartes(jeu);
-    init_joueurs(jeu);
-
-    jeu->tuile_out.shape = 2;
-    jeu->tuile_out.tresor = ' ';
-    dessinI(jeu->tuile_out.dessin, jeu->tuile_out.tresor);
-    char c = getch();
-}
-
 void init_joueurs(t_jeu *jeu)
 {
     // tableaudes tresors a attribuer aux joueurs
@@ -212,4 +198,19 @@ void init_cartes(t_jeu *jeu)
     }
     printf("T : %d L : %d I : %d",compteurT,compteurL,compteurI);
     char c = getch();*/
+}
+
+void init_jeu(t_jeu *jeu, int nbr_player)
+{
+    jeu->nbr_player = nbr_player;
+    jeu->tour_de_jeu = 0;
+
+    init_cartes(jeu);
+    init_joueurs(jeu);
+
+    jeu->tuile_out.shape = 2;
+    jeu->tuile_out.tresor = ' ';
+    dessinI(jeu->tuile_out.dessin, jeu->tuile_out.tresor);
+    char c = getch();
+    c++; //fix warning unused variable
 }
