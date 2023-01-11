@@ -7,9 +7,9 @@ void init_jeu(t_jeu *jeu, int nbr_player)
 {
     jeu->nbr_player = nbr_player;
     jeu->tour_de_jeu = 0;
-    init_cartes(jeu);
-    init_joueurs(jeu);
-    init_tuile_out(jeu);
+    //init_cartes(jeu);
+    //init_joueurs(jeu);
+    //init_tuile_out(jeu);
 }
 
 //initialise les tuiles

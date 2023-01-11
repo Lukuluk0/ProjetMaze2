@@ -22,3 +22,34 @@
 1673389130 c:\users\zamra\onedrive\bureau\projet matteo\projet_matteo\init.h
 	"header.h"
 
+1673399645 source:c:\users\romain\documents\ece\cours\ing4\projets nouveaux\projetmaze2\projet_matteo\affichage.c
+	"affichage.h"
+
+1673397011 c:\users\romain\documents\ece\cours\ing4\projets nouveaux\projetmaze2\projet_matteo\affichage.h
+	"header.h"
+
+1673399470 c:\users\romain\documents\ece\cours\ing4\projets nouveaux\projetmaze2\projet_matteo\header.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+	<conio.h>
+
+1673392753 source:c:\users\romain\documents\ece\cours\ing4\projets nouveaux\projetmaze2\projet_matteo\init.c
+	"init.h"
+
+1673391750 c:\users\romain\documents\ece\cours\ing4\projets nouveaux\projetmaze2\projet_matteo\init.h
+	"header.h"
+
+1673397981 source:c:\users\romain\documents\ece\cours\ing4\projets nouveaux\projetmaze2\projet_matteo\main.c
+	"header.h"
+	"menu.h"
+
+1673396310 source:c:\users\romain\documents\ece\cours\ing4\projets nouveaux\projetmaze2\projet_matteo\menu.c
+	"menu.h"
+	"affichage.h"
+
+1673395163 c:\users\romain\documents\ece\cours\ing4\projets nouveaux\projetmaze2\projet_matteo\menu.h
+	"header.h"
+

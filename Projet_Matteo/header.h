@@ -27,7 +27,6 @@ typedef struct player
     char main_tresors[12];
     int index_tresors;
 
-
 }t_player;
 
 typedef struct jeu {
