@@ -1,10 +1,10 @@
 #include "jeu.h"
 #include "init.h"
 #include "affichage.h"
+#include "sauvegarde.h"
 
 void Jouer(t_jeu jeu)
 {
-
     do
     {
         system("cls");
@@ -27,20 +27,30 @@ void Jouer(t_jeu jeu)
         {
             jeu.tour_de_jeu = 0;
         }
-        if(fin_du_jeu(jeu) == 0){
+        if(fin_du_jeu(jeu) == 0)
+        {
             system("cls");
             gotoligcol(5,5);
             printf("BRAVO ! Le joueur %d a gagne !", jeu.tour_de_jeu);
             Sleep(3000);
             break;
+
         }
+        if(jeu.tour_de_jeu == 0)
+        {
+            if(sauv_menu(jeu) == 1)
+            {
+                break;
+            }
+        }
+
     }
     while (1);   // faire la fonction de fin de jeu
 }
 
 int fin_du_jeu(t_jeu jeu)
 {
-    for(int i = 0;i<jeu.nbr_player;i++)
+    for(int i = 0; i<jeu.nbr_player; i++)
     {
         if(jeu.joueurs[i].index_tresors == 24/jeu.nbr_player)
         {
@@ -57,9 +67,10 @@ int rotate(t_jeu* jeu)
     char Y;
 
     Y = getch();
-    if(Y=='Y'||Y == 'y'){
-    rotate90Clockwise(jeu->carte_restante.dessin);
-    return 1;
+    if(Y=='Y'||Y == 'y')
+    {
+        rotate90Clockwise(jeu->carte_restante.dessin);
+        return 1;
     }
 
     return 0;
@@ -76,7 +87,8 @@ void deplacerTuile(t_jeu *jeu)
         printf("ou pousser la tuile (A..L) :");
         emplacement = getchar();
         emplacement = toupper(emplacement);
-    }while(emplacement < 'A' || emplacement > 'L');
+    }
+    while(emplacement < 'A' || emplacement > 'L');
 
     switch (emplacement)
     {
@@ -472,7 +484,8 @@ int deplacerJoueur(t_jeu *plateau)
         plateau->joueurs[plateau->tour_de_jeu].colonne += col_dep;
         int nouv_rang = plateau->joueurs[plateau->tour_de_jeu].rang;
         int nouv_colonne = plateau->joueurs[plateau->tour_de_jeu].colonne;
-        if(plateau->joueurs[plateau->tour_de_jeu].main_tresors[plateau->joueurs[plateau->tour_de_jeu].index_tresors] == plateau->cartes[nouv_rang][nouv_colonne].tresor){
+        if(plateau->joueurs[plateau->tour_de_jeu].main_tresors[plateau->joueurs[plateau->tour_de_jeu].index_tresors] == plateau->cartes[nouv_rang][nouv_colonne].tresor)
+        {
             plateau->cartes[nouv_rang][nouv_colonne].tresor = ' ';
             plateau->cartes[nouv_rang][nouv_colonne].dessin[1][1] = ' ';
             plateau->joueurs[plateau->tour_de_jeu].index_tresors++;

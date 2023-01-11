@@ -3,6 +3,7 @@
 #include "menu.h"
 #include "init.h"
 #include "jeu.h"
+#include "sauvegarde.h"
 
 int main()
 {
@@ -43,6 +44,9 @@ int main()
         case 2:
         {
             menu = -1;
+            t_jeu jeu;
+            char_jeu(&jeu);
+            Jouer(jeu);
             // sauvegarde
             break;
         }
