@@ -22,3 +22,26 @@
 1673389130 c:\users\zamra\onedrive\bureau\projet matteo\projet_matteo\init.h
 	"header.h"
 
+1673391112 source:c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\affichage.c
+	"affichage.h"
+
+1673391112 c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\affichage.h
+	"header.h"
+
+1673393060 c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\header.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+	<conio.h>
+
+1673398956 source:c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\init.c
+	"init.h"
+
+1673391112 c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\init.h
+	"header.h"
+
+1673399296 source:c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\main.c
+	"header.h"
+

@@ -35,6 +35,7 @@ int main()
         {
             menu = -1;
             t_jeu jeu;
+            init_jeu(&jeu,2);
             //jeu
             break;
         }

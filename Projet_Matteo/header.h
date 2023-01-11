@@ -12,7 +12,7 @@
 typedef struct carte {
     int rang; //ligne
     int colonne;//colonne
-    int shape; // soit T=0 soit L=1 ssoit I=1
+    int shape; // soit T=0 soit L=1 ssoit I=2
     char dessin[3][3];
     char tresor;
 
