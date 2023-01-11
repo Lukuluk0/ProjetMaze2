@@ -54,12 +54,17 @@ int main()
         {
             menu = -1;
             // affiche regle
+            printf("\nLes joueurs peuvent deplacer les murs du labyrinthe en utilisant la piece de plus pour creer un passage vers les tresors.");
+            printf("\nChaque joueur doit collecter tous ses propres tresors avant les autres joueurs.");
+            printf("\nLe joueur qui recupere tous ses tresors en premier gagne la partie.");
+            printf("\nLes joueurs peuvent egalement bloquer les passages des autres joueurs en utilisant la piece de plus, mais ils doivent faire attention a ne pas se bloquer eux-memes.");
+            char c = getch();
+            c++;
             break;
         }
         case 4:
         {
             menu = 4;
-            // affiche regle
             break;
         }
         default:
