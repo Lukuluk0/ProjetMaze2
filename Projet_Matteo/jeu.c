@@ -39,8 +39,8 @@ void deplacerTuile(t_jeu *jeu)
         int var = 1;
         shift_row_down(var, jeu->cartes);
         t_carte temp = jeu->cartes[0][var];
-        jeu->cartes[0][var] = jeu->tuile_out;
-        jeu->tuile_out = temp;
+        jeu->cartes[0][var] = jeu->carte_restante;
+        jeu->carte_restante = temp;
         break;
     }
     case 'B':
@@ -49,8 +49,8 @@ void deplacerTuile(t_jeu *jeu)
         int var = 3;
         shift_row_down(var, jeu->cartes);
         t_carte temp = jeu->cartes[0][var];
-        jeu->cartes[0][var] = jeu->tuile_out;
-        jeu->tuile_out = temp;
+        jeu->cartes[0][var] = jeu->carte_restante;
+        jeu->carte_restante = temp;
         break;
     }
     case 'C':
@@ -60,8 +60,8 @@ void deplacerTuile(t_jeu *jeu)
         int var = 5;
         shift_row_down(var, jeu->cartes);
         t_carte temp = jeu->cartes[0][var];
-        jeu->cartes[0][var] = jeu->tuile_out;
-        jeu->tuile_out = temp;
+        jeu->cartes[0][var] = jeu->carte_restante;
+        jeu->carte_restante = temp;
         break;
     }
     case 'D':
@@ -70,8 +70,8 @@ void deplacerTuile(t_jeu *jeu)
         int var = 1;
         shift_row_left(var, jeu->cartes);
         t_carte temp = jeu->cartes[var][6];
-        jeu->cartes[var][6] = jeu->tuile_out;
-        jeu->tuile_out = temp;
+        jeu->cartes[var][6] = jeu->carte_restante;
+        jeu->carte_restante = temp;
         break;
     }
     case 'E':
@@ -80,8 +80,8 @@ void deplacerTuile(t_jeu *jeu)
         int var = 3;
         shift_row_left(var, jeu->cartes);
         t_carte temp = jeu->cartes[var][6];
-        jeu->cartes[var][6] = jeu->tuile_out;
-        jeu->tuile_out = temp;
+        jeu->cartes[var][6] = jeu->carte_restante;
+        jeu->carte_restante = temp;
         break;
     }
     case 'F':
@@ -90,8 +90,8 @@ void deplacerTuile(t_jeu *jeu)
         int var = 5;
         shift_row_left(var, jeu->cartes);
         t_carte temp = jeu->cartes[var][6];
-        jeu->cartes[var][6] = jeu->tuile_out;
-        jeu->tuile_out = temp;
+        jeu->cartes[var][6] = jeu->carte_restante;
+        jeu->carte_restante = temp;
         break;
     }
     case 'G':
@@ -100,8 +100,8 @@ void deplacerTuile(t_jeu *jeu)
         int var = 5;
         shift_row_up(var, jeu->cartes);
         t_carte temp = jeu->cartes[6][var];
-        jeu->cartes[6][var] = jeu->tuile_out;
-        jeu->tuile_out = temp;
+        jeu->cartes[6][var] = jeu->carte_restante;
+        jeu->carte_restante = temp;
         break;
     }
     case 'H':
@@ -110,8 +110,8 @@ void deplacerTuile(t_jeu *jeu)
         int var = 3;
         shift_row_up(var, jeu->cartes);
         t_carte temp = jeu->cartes[6][var];
-        jeu->cartes[6][var] = jeu->tuile_out;
-        jeu->tuile_out = temp;
+        jeu->cartes[6][var] = jeu->carte_restante;
+        jeu->carte_restante = temp;
         break;
     }
     case 'I':
@@ -120,8 +120,8 @@ void deplacerTuile(t_jeu *jeu)
         int var = 1;
         shift_row_up(var, jeu->cartes);
         t_carte temp = jeu->cartes[6][var];
-        jeu->cartes[6][var] = jeu->tuile_out;
-        jeu->tuile_out = temp;
+        jeu->cartes[6][var] = jeu->carte_restante;
+        jeu->carte_restante = temp;
         break;
     }
     case 'J':
@@ -130,8 +130,8 @@ void deplacerTuile(t_jeu *jeu)
         int var = 5;
         shift_row_right(var, jeu->cartes);
         t_carte temp = jeu->cartes[var][0];
-        jeu->cartes[var][0] = jeu->tuile_out;
-        jeu->tuile_out = temp;
+        jeu->cartes[var][0] = jeu->carte_restante;
+        jeu->carte_restante = temp;
         break;
     }
     case 'K':
@@ -140,8 +140,8 @@ void deplacerTuile(t_jeu *jeu)
         int var = 3;
         shift_row_right(var, jeu->cartes);
         t_carte temp = jeu->cartes[var][0];
-        jeu->cartes[var][0] = jeu->tuile_out;
-        jeu->tuile_out = temp;
+        jeu->cartes[var][0] = jeu->carte_restante;
+        jeu->carte_restante = temp;
         break;
     }
     case 'L':
@@ -150,8 +150,8 @@ void deplacerTuile(t_jeu *jeu)
         int var = 1;
         shift_row_right(var, jeu->cartes);
         t_carte temp = jeu->cartes[var][0];
-        jeu->cartes[var][0] = jeu->tuile_out;
-        jeu->tuile_out = temp;
+        jeu->cartes[var][0] = jeu->carte_restante;
+        jeu->carte_restante = temp;
         break;
     }
     }
@@ -409,8 +409,7 @@ int deplacerJoueur(t_jeu *plateau)
     if (possible < 0)
     {
         gotoligcol(12, 35);
-        printf("Impossible de se deplacer dans cette direction (error #%d)",
-               plateau->joueurs[plateau->tour_de_jeu].rang, plateau->joueurs[plateau->tour_de_jeu].colonne, nouvelle_lig, nouvelle_col, possible);
+        printf("Impossible de se deplacer dans cette direction (error #%d)", possible);
         Sleep(500);
         return -1; // impossible de se deplacer dans cette direction, on recommence
     }
