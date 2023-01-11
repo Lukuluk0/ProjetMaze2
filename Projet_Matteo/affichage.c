@@ -99,10 +99,21 @@ void affichagePlateau(t_jeu plateau)
         Color(15, 0);
     }
 
+    // affiche carte restante a placer
+    for (int k = 0; k < 3; k++)
+    {
+        for (int l = 0; l < 3; l++)
+        {
+                gotoligcol(15+k,44+l);
+                printf("%c",plateau.carte_restante.dessin[k][l]);
+        }
+    }
+
 }
 
 
-int testDeplacement(t_jeu plateau, int lig, int col){
+int testDeplacement(t_jeu plateau, int lig, int col)
+{
     int test = -1;
 
     int tour = plateau.tour_de_jeu;
@@ -111,48 +122,66 @@ int testDeplacement(t_jeu plateau, int lig, int col){
     int sens = 0; //0 = haut, 1 = droite, 2 = bas, 3=gauche
 
     // Check que le joueur ne sors par du plateau
-    if (lig < 0 || lig > 6 || col < 0 || col > 6){
+    if (lig < 0 || lig > 6 || col < 0 || col > 6)
+    {
         return -1;
     }
 
-    if(col_j == col && lig_j < lig ){ // deplacement vers le haut
+    if(col_j == col && lig_j < lig )  // deplacement vers le haut
+    {
         sens = 0;
-    } else if (col_j == col && lig_j > lig){ // deplacement vers le bas
+    }
+    else if (col_j == col && lig_j > lig)    // deplacement vers le bas
+    {
         sens = 2;
-    } else if(col_j < col && lig_j == lig ){ // deplacement vers la droite
+    }
+    else if(col_j < col && lig_j == lig )    // deplacement vers la droite
+    {
         sens = 1;
-    } else if (col_j > col && lig_j == lig){ // deplacement vers la gauche
+    }
+    else if (col_j > col && lig_j == lig)    // deplacement vers la gauche
+    {
         sens = 3;
     }
 
-    switch(sens){
-        case 0: {
-            //si deplacement vers le haut, on check le dessin au mileu bas de la carte du dessus
-            if(plateau.cartes[lig][col].dessin[2][1] != '#') {
-                test = 1;
-            }
-        break;
+    switch(sens)
+    {
+    case 0:
+    {
+        //si deplacement vers le haut, on check le dessin au mileu bas de la carte du dessus
+        if(plateau.cartes[lig][col].dessin[2][1] != '#')
+        {
+            test = 1;
         }
-        case 1: {
-            //si deplacement vers le haut, on check le dessin au milieu gauche de la carte a droite
-            if(plateau.cartes[lig][col].dessin[1][0] != '#') {
-                test = 1;
-            }
-        break;        }
-        case 2: {
-            //si deplacement vers le haut, on check le dessin au mileu haut de la carte en dessous
-            if(plateau.cartes[lig][col].dessin[0][1] != '#') {
-                test = 1;
-            }
         break;
+    }
+    case 1:
+    {
+        //si deplacement vers le haut, on check le dessin au milieu gauche de la carte a droite
+        if(plateau.cartes[lig][col].dessin[1][0] != '#')
+        {
+            test = 1;
         }
-        case 3: {
-            //si deplacement vers le haut, on check le dessin au mileu droit de la carte a gauche
-            if(plateau.cartes[lig][col].dessin[1][2] != '#') {
-                test = 1;
-            }
         break;
+    }
+    case 2:
+    {
+        //si deplacement vers le haut, on check le dessin au mileu haut de la carte en dessous
+        if(plateau.cartes[lig][col].dessin[0][1] != '#')
+        {
+            test = 1;
         }
+        break;
+    }
+    case 3:
+    {
+        //si deplacement vers le haut, on check le dessin au mileu droit de la carte a gauche
+        if(plateau.cartes[lig][col].dessin[1][2] != '#')
+        {
+            test = 1;
+        }
+        break;
+    }
     }
     return test;
 }
