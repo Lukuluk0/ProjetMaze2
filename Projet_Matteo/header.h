@@ -1,12 +1,14 @@
 #ifndef HEADER_H_INCLUDED
 #define HEADER_H_INCLUDED
 
+
+#include <windows.h>
+#include <conio.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <windows.h>
+
 #include <time.h>
-#include <conio.h>
 
 
 typedef struct carte {
@@ -32,7 +34,7 @@ typedef struct player
 typedef struct jeu {
     t_carte cartes[7][7]; // 7*7 = 49
     t_player joueurs[4];
-    t_carte tuile_out; // + 1 = 50
+    t_carte carte_restante; // + 1 = 50
     int nbr_player;
     int tour_de_jeu;
 }t_jeu;

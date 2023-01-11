@@ -272,9 +272,9 @@ void init_jeu(t_jeu *jeu, int nbr_player)
     init_cartes(jeu);
     init_joueurs(jeu);
 
-    jeu->tuile_out.shape = 2;
-    jeu->tuile_out.tresor = ' ';
-    dessinI(jeu->tuile_out.dessin, jeu->tuile_out.tresor);
+    jeu->carte_restante.shape = 2;
+    jeu->carte_restante.tresor = ' ';
+    dessinI(jeu->carte_restante.dessin, jeu->carte_restante.tresor);
     char c = getch();
     c++; //fix warning unused variable
 }

@@ -18,7 +18,6 @@ void gotoligcol(int lig, int col)
 void affichagePlateau(t_jeu plateau)
 {
 
-
     int decalageGauche = 5;
     int decalageHaut = 2;
     int espaceBlockHorizontal = 2;
@@ -62,11 +61,11 @@ void affichagePlateau(t_jeu plateau)
                 for (int l = 0; l < 3; l++)
                 {
                     gotoligcol(decalageHaut + i * (3 + espaceBlockVertical) + k, decalageGauche + j * (3 + espaceBlockHorizontal) + l);
-                    if(plateau.cartes[i][j].dessin[k][l] == '#')
+                    if (plateau.cartes[i][j].dessin[k][l] == '#')
                     {
-                        for(int m=0; m<plateau.nbr_player; m++)
+                        for (int m = 0; m < plateau.nbr_player; m++)
                         {
-                            if(plateau.joueurs[m].rang == i && plateau.joueurs[m].colonne == j)
+                            if (plateau.joueurs[m].rang == i && plateau.joueurs[m].colonne == j)
                             {
                                 Color(9 + m, 9 + m);
                                 break;
@@ -84,7 +83,6 @@ void affichagePlateau(t_jeu plateau)
         }
     }
 
-
     gotoligcol(5, 45);
     printf("C'est au joueur %d de joueur !", plateau.tour_de_jeu);
     gotoligcol(7, 45);
@@ -98,5 +96,13 @@ void affichagePlateau(t_jeu plateau)
         printf("%c ", plateau.joueurs[plateau.tour_de_jeu].main_tresors[j]);
         Color(15, 0);
     }
-
+    // affiche carte restante a placer
+    for (int k = 0; k < 3; k++)
+    {
+        for (int l = 0; l < 3; l++)
+        {
+            gotoligcol(15 + k, 44 + l);
+            printf("%c", plateau.carte_restante.dessin[k][l]);
+        }
+    }
 }
