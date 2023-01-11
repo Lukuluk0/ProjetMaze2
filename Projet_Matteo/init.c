@@ -179,6 +179,7 @@ void init_cartes(t_jeu *jeu)
     }
 
     // Melange des piece qui ne bouge pas
+    for(int v = 0; v < 10 ;v++){
     for (i = 0; i < 7; i++)
     {
         for (j = 0; j < 7; j++)
@@ -195,8 +196,15 @@ void init_cartes(t_jeu *jeu)
                 t_carte temp = jeu->cartes[i][j];
                 jeu->cartes[i][j] = jeu->cartes[x][y];
                 jeu->cartes[x][y] = temp;
+                int t= rand()%4;
+                for(int h =0;h<t;h++)
+                {
+                    rotate90Clockwise(jeu->cartes[i][j].dessin);
+                }
+
             }
         }
+    }
     }
 
     //Rotate les coins

@@ -35,9 +35,9 @@ int main()
             system("cls");
             t_jeu jeu;
             init_jeu(&jeu, number_player);
-            affichagePlateau(jeu);
-            Sleep(50000);
-            // jeu
+            Jouer(jeu);
+            //Sleep(50000);
+            // jeu&
             break;
         }
         case 2:
