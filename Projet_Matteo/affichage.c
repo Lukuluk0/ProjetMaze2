@@ -121,8 +121,34 @@ void affichagePlateau(t_jeu plateau)
                 Color(15, 15);
             }
             printf("%c", plateau.carte_restante.dessin[k][l]);
-            Color(15,
-                  0);
+            Color(15,0);
         }
     }
+
+
+
+    gotoligcol(0, 11);
+    printf("A");
+    gotoligcol(0, 21);
+    printf("B");
+    gotoligcol(0, 31);
+    printf("C");
+    gotoligcol(7, 40);
+    printf("D");
+    gotoligcol(15, 40);
+    printf("E");
+    gotoligcol(23, 40);
+    printf("F");
+    gotoligcol(30, 31);
+    printf("G");
+    gotoligcol(30, 21);
+    printf("H");
+    gotoligcol(30, 11);
+    printf("I");
+    gotoligcol(23, 1);
+    printf("J");
+    gotoligcol(15, 1);
+    printf("K");
+    gotoligcol(7, 1);
+    printf("L");
 }
