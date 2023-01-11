@@ -34,7 +34,7 @@ int main()
             } while (number_player == -1);
             system("cls");
             t_jeu jeu;
-            init_jeu(&jeu, 2);
+            init_jeu(&jeu, number_player);
             affichagePlateau(jeu);
             Sleep(50000);
             // jeu

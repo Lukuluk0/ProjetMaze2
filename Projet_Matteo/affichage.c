@@ -17,6 +17,10 @@ void gotoligcol(int lig, int col)
 
 void affichagePlateau(t_jeu plateau)
 {
+    for(int i=0; i<plateau.nbr_player; i++)
+    {
+        printf("j_%d - %d,%d    ", i, plateau.joueurs[i].rang, plateau.joueurs[i].colonne);
+    }
 
     int decalageGauche = 5;
     int decalageHaut = 2;
@@ -57,8 +61,20 @@ void affichagePlateau(t_jeu plateau)
                 gotoligcol(decalageHaut + i * (3 + espaceBlockVertical) + k, decalageGauche + j * (3 + espaceBlockHorizontal));
                 for (int l = 0; l < 3; l++)
                 {
-                    if(plateau.cartes[i][j].dessin[k][l] == '#'){
-                        Color(15, 15);
+                    if(plateau.cartes[i][j].dessin[k][l] == '#')
+                    {
+                        for(int m=0; m<plateau.nbr_player; m++)
+                        {
+                            if(plateau.joueurs[m].rang == i && plateau.joueurs[m].colonne == j)
+                            {
+                                Color(0, 9 + m);
+                                //printf("%d",m);
+                            }
+                            else
+                            {
+                                Color(15, 15);
+                            }
+                        }
                     }
                     printf("%c", plateau.cartes[i][j].dessin[k][l]);
                     Color(15, 0);
@@ -73,14 +89,11 @@ void affichagePlateau(t_jeu plateau)
         printf("C'est au joueur %d de joueur !", i);
         gotoligcol(7, 45);
         printf("Vos tresors : ");
-        for (int j = 0; j < 12; j++)
+        for (int j = 0; j < 24 / plateau.nbr_player; j++)
         {
             if (j == plateau.joueurs[i].index_tresors)
             {
-            gotoligcol(0, 0);
-            printf("test %d, %d", j, plateau.joueurs[i].index_tresors);
-            gotoligcol(7, 61);
-                Color(6 + i, 0);
+                Color(9 + i, 0);
             }
             printf("%c ", plateau.joueurs[i].main_tresors[j]);
             Color(15, 0);
