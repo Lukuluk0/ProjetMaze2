@@ -18,6 +18,7 @@ void gotoligcol(int lig, int col)
 void affichagePlateau(t_jeu plateau)
 {
 
+
     int decalageGauche = 5;
     int decalageHaut = 2;
     int espaceBlockHorizontal = 2;
@@ -110,7 +111,7 @@ int testDeplacement(t_jeu plateau, int lig, int col){
     int sens = 0; //0 = haut, 1 = droite, 2 = bas, 3=gauche
 
     // Check que le joueur ne sors par du plateau
-    if (lig < 0 || lig > || col < 0 || col > 6){
+    if (lig < 0 || lig > 6 || col < 0 || col > 6){
         return -1;
     }
 

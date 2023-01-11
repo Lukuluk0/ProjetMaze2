@@ -1,26 +1,52 @@
 #include "init.h"
 
+#define N 3
+
+// Function to rotate the matrix 90 degree clockwise
+void rotate90Clockwise(char a[N][N]) /// source https://www.geeksforgeeks.org/
+{
+
+    // Traverse each cycle
+    for (int i = 0; i < N / 2; i++)
+    {
+        for (int j = i; j < N - i - 1; j++)
+        {
+
+            // Swap elements of each cycle
+            // in clockwise direction
+            char temp = a[i][j];
+            a[i][j] = a[N - 1 - j][i];
+            a[N - 1 - j][i] = a[N - 1 - i][N - 1 - j];
+            a[N - 1 - i][N - 1 - j] = a[j][N - 1 - i];
+            a[j][N - 1 - i] = temp;
+        }
+    }
+}
+
 void dessinI(char dessin[3][3], char tresor)
 {
     char carte[3][3] = {{'#', ' ', '#'},
-                        {'#', tresor, '#'},
-                        {'#', ' ', '#'}};
+        {'#', tresor, '#'},
+        {'#', ' ', '#'}
+    };
     memcpy(dessin, carte, sizeof(carte));
 }
 
 void dessinT(char dessin[3][3], char tresor)
 {
     char carte[3][3] = {{'#', ' ', '#'},
-                        {'#', tresor, ' '},
-                        {'#', ' ', '#'}};
+        {'#', tresor, ' '},
+        {'#', ' ', '#'}
+    };
     memcpy(dessin, carte, sizeof(carte));
 }
 
 void dessinL(char dessin[3][3], char tresor)
 {
     char carte[3][3] = {{'#', '#', '#'},
-                        {' ', tresor, '#'},
-                        {'#', ' ', '#'}};
+        {' ', tresor, '#'},
+        {'#', ' ', '#'}
+    };
     memcpy(dessin, carte, sizeof(carte));
 }
 
@@ -173,7 +199,37 @@ void init_cartes(t_jeu *jeu)
         }
     }
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Rotate les coins
+    rotate90Clockwise(jeu->cartes[0][0].dessin);
+    rotate90Clockwise(jeu->cartes[0][0].dessin);
+    rotate90Clockwise(jeu->cartes[0][0].dessin);
+
+    rotate90Clockwise(jeu->cartes[6][0].dessin);
+    rotate90Clockwise(jeu->cartes[6][0].dessin);
+
+    rotate90Clockwise(jeu->cartes[6][6].dessin);
+
+    // Rotate les T en haut
+    rotate90Clockwise(jeu->cartes[0][2].dessin);
+
+    rotate90Clockwise(jeu->cartes[0][4].dessin);
+
+    //rotate les T a droite
+    rotate90Clockwise(jeu->cartes[2][6].dessin);
+    rotate90Clockwise(jeu->cartes[2][6].dessin);
+
+    rotate90Clockwise(jeu->cartes[4][6].dessin);
+    rotate90Clockwise(jeu->cartes[4][6].dessin);
+
+    //Rotate les T en bas
+    rotate90Clockwise(jeu->cartes[6][2].dessin);
+    rotate90Clockwise(jeu->cartes[6][2].dessin);
+    rotate90Clockwise(jeu->cartes[6][2].dessin);
+
+    rotate90Clockwise(jeu->cartes[6][4].dessin);
+    rotate90Clockwise(jeu->cartes[6][4].dessin);
+    rotate90Clockwise(jeu->cartes[6][4].dessin);
+///////////////////////////////////////////////////////////////////////////////////////////////////////
     /*int compteurT = 0,compteurI=0,compteurL=0;
     for(i=0; i<7; i++)
     {

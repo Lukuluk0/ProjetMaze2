@@ -36,13 +36,13 @@
 	<time.h>
 	<conio.h>
 
-1673391112 source:c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\affichage.c
+1673433360 source:c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\affichage.c
 	"affichage.h"
 
-1673391112 c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\affichage.h
+1673432512 c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\affichage.h
 	"header.h"
 
-1673393060 c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\header.h
+1673432512 c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\header.h
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -68,12 +68,28 @@
 
 1673395163 c:\users\romain\documents\ece\cours\ing4\projets nouveaux\projetmaze2\projet_matteo\menu.h
 
-1673398956 source:c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\init.c
+1673433879 source:c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\init.c
 	"init.h"
 
-1673391112 c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\init.h
+1673432512 c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\init.h
 	"header.h"
 
-1673399296 source:c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\main.c
+1673432512 source:c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\main.c
 	"header.h"
+	"menu.h"
+	"affichage.h"
+	"init.h"
+
+1673432765 source:c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\jeu.c
+	"jeu.h"
+
+1673432765 c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\jeu.h
+	"header.h"
+
+1673432512 c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\menu.h
+	"header.h"
+
+1673432512 source:c:\users\zamra\onedrive\bureau\projet matteo\projetmaze2\projet_matteo\menu.c
+	"menu.h"
+	"affichage.h"
 
