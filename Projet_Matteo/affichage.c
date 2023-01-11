@@ -77,6 +77,21 @@ void affichagePlateau(t_jeu plateau)
                         }
                         printf("%c", plateau.cartes[i][j].dessin[k][l]);
                         Color(15, 0);
+                    } else if(k == 1 && l == 1){
+                        if(plateau.cartes[i][j].tresor != ' '){
+                            int printed = 0;
+                            for(int n=0; n<plateau.nbr_player; n++){
+                                if(plateau.joueurs[n].main_tresors[plateau.joueurs[n].index_tresors] == plateau.cartes[i][j].tresor){
+                                    Color(9 + n, 0);
+                                    printf("%c", plateau.cartes[i][j].tresor);
+                                    Color(15, 0);
+                                    printed = 1;
+                                }
+                            }
+                            if(printed == 0) {
+                                printf("%c", plateau.cartes[i][j].tresor);
+                            }
+                        }
                     }
                 }
             }
@@ -102,7 +117,12 @@ void affichagePlateau(t_jeu plateau)
         for (int l = 0; l < 3; l++)
         {
             gotoligcol(15 + k, 44 + l);
+            if(plateau.carte_restante.dessin[k][l] == '#'){
+                Color(15, 15);
+            }
             printf("%c", plateau.carte_restante.dessin[k][l]);
+            Color(15,
+                  0);
         }
     }
 }

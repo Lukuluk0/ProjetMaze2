@@ -8,29 +8,38 @@ void Jouer(t_jeu jeu)
     {
         system("cls");
         affichagePlateau(jeu);
-        // deplacerTuile(&jeu);
+        deplacerTuile(&jeu);
         int dep = -1;
         do
         {
             system("cls");
             affichagePlateau(jeu);
             dep = deplacerJoueur(&jeu);
-        } while (dep == -1);
+        }
+        while (dep == -1);
 
         jeu.tour_de_jeu++;
         if (jeu.tour_de_jeu > jeu.nbr_player - 1)
         {
             jeu.tour_de_jeu = 0;
         }
-    } while (1); // faire la fonction de fin de jeu
+    }
+    while (1);   // faire la fonction de fin de jeu
 }
 
 void deplacerTuile(t_jeu *jeu)
 {
-    gotoligcol(9, 45);
-    printf("Veuillez choisir un emplacement ou pousser la tuile (A..L) :");
-    char emplacement;
-    scanf("%c", &emplacement);
+    char emplacement = -1;
+    do
+    {
+        gotoligcol(9, 45);
+        printf("Veuillez choisir un emplacement");
+        gotoligcol(10, 45);
+        printf("ou pousser la tuile (A..L) :");
+        emplacement = getchar();
+        emplacement = toupper(emplacement);
+    }while(emplacement < 'A' || emplacement > 'L');
+
     switch (emplacement)
     {
     case 'A':
@@ -224,19 +233,23 @@ int testDeplacementJoueur(t_jeu plateau, int lig, int col)
     }
 
     if (col_j == col && lig_j > lig)
-    { // deplacement vers le haut
+    {
+        // deplacement vers le haut
         sens = 0;
     }
     else if (col_j == col && lig_j < lig)
-    { // deplacement vers le bas
+    {
+        // deplacement vers le bas
         sens = 2;
     }
     else if (col_j < col && lig_j == lig)
-    { // deplacement vers la droite
+    {
+        // deplacement vers la droite
         sens = 1;
     }
     else if (col_j > col && lig_j == lig)
-    { // deplacement vers la gauche
+    {
+        // deplacement vers la gauche
         sens = 3;
     }
 
@@ -314,9 +327,9 @@ int testDeplacementJoueur(t_jeu plateau, int lig, int col)
             test = -plateau.cartes[lig][col].dessin[1][2];
         }
         break;
-    default:
-        test = -4;
-    }
+        default:
+            test = -4;
+        }
     }
     return test;
 }
@@ -374,8 +387,8 @@ int deplacerJoueur(t_jeu *plateau)
     {
         deplacement = getDirection(10, 40);
     }
-    gotoligcol(11, 40);
-    printf("deplacement: %d\n", deplacement);
+//    gotoligcol(11, 40);
+//    printf("deplacement: %d\n", deplacement);
 
     switch (deplacement)
     {
@@ -414,7 +427,8 @@ int deplacerJoueur(t_jeu *plateau)
         return -1; // impossible de se deplacer dans cette direction, on recommence
     }
     else
-    { // sinon c'est possible, donc on modifie les coordonn�es du joueur.
+    {
+        // sinon c'est possible, donc on modifie les coordonn�es du joueur.
         plateau->joueurs[plateau->tour_de_jeu].rang += lig_dep;
         plateau->joueurs[plateau->tour_de_jeu].colonne += col_dep;
     }
