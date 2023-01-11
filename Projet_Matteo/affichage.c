@@ -20,7 +20,7 @@ void affichagePlateau(t_jeu plateau)
 
     int decalageGauche = 5;
     int decalageHaut = 2;
-    int espaceBlockHorizontal = 3;
+    int espaceBlockHorizontal = 2;
     int espaceBlockVertical = 1;
 
     // char mur = 'x';
@@ -48,7 +48,7 @@ void affichagePlateau(t_jeu plateau)
     //     }
     // }
 
-    for (int i = 1; i < 7; i++)
+    for (int i = 0; i < 7; i++)
     {
         for (int j = 0; j < 7; j++)
         {
@@ -57,7 +57,11 @@ void affichagePlateau(t_jeu plateau)
                 gotoligcol(decalageHaut + i * (3 + espaceBlockVertical) + k, decalageGauche + j * (3 + espaceBlockHorizontal));
                 for (int l = 0; l < 3; l++)
                 {
+                    if(plateau.cartes[i][j].dessin[k][l] == '#'){
+                        Color(15, 15);
+                    }
                     printf("%c", plateau.cartes[i][j].dessin[k][l]);
+                    Color(15, 0);
                 }
             }
         }
@@ -73,6 +77,9 @@ void affichagePlateau(t_jeu plateau)
         {
             if (j == plateau.joueurs[i].index_tresors)
             {
+            gotoligcol(0, 0);
+            printf("test %d, %d", j, plateau.joueurs[i].index_tresors);
+            gotoligcol(7, 61);
                 Color(6 + i, 0);
             }
             printf("%c ", plateau.joueurs[i].main_tresors[j]);
